@@ -1,0 +1,8 @@
+CatFacts Tutorial
+
+1. Explain why we are doing Cats facts
+2. Introduce Technologies
+3. Installation Ruby/Rvm
+4. Gemfile and app.rb
+5. ruby app.rb http://localhost:4567/
+6. add Mongo_Mapper and some classes
