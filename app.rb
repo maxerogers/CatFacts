@@ -13,3 +13,12 @@ end
 get '/' do
   "Hello World"
 end
+
+#generate a new client id and secret
+
+
+get "/random_cat_fact" do
+  content_type :json
+
+  CatFact.first.to_json
+end

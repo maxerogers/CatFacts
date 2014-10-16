@@ -6,3 +6,5 @@ ruby '2.1.2'
 gem "sinatra"
 gem "mongoid"
 gem "tux"
+gem "rerun"
+gem "json"

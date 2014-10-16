@@ -1,8 +1,82 @@
 CatFacts Tutorial
 
+Demonstrate how to build a decent API using Sinatra, MongoID and Heroku
+
 1. Explain why we are doing Cats facts
 2. Introduce Technologies
 3. Installation Ruby/Rvm
 4. Gemfile and app.rb
 5. ruby app.rb http://localhost:4567/
-6. add Mongo_Mapper and some classes
+6. add Mongoid and some classes
+7. Push to Heroku
+
+Pick your own Adventure Tutorial
+
+Sinatra or Rails
+
+ActiveRecord, DataMapper, Mongoid, Mongo_Mapper
+
+A Good API has
+1. Dependable speed
+  Limit Requests
+2. Security
+  Secret Keys and Registration
+
+Limit requests store in session the known urls in a hash and count the number of times they have requests
+Also have a list of registered urls. Check if the ClientID/Key is acceptable. If it is wrong just reject
+It is correct then add it to their hourly request limit. Maybe hide it in the header like a good api Don't want to
+dirty up the json
+
+Known = 5000 an hour
+Unknown = 60 an hour
+
+
+
+At HackRU My partner Eve and I kept running into an issue with our rack sessions.
+We tried using the two default solutions provides by Sinatra (Session::Cookie and Session::Pool).
+Both had their solutions and problems. Cookie would function just fine but eventually we would
+ run into a error where we had used up all of the 4k avaiable cookie space. Session::Pool releaved
+ us of this issue but it didn't function properly. It would keep the user logged it throughout the
+ redirects but would prevent the pages being updated properly(cacheing is suspected).
+
+ Eventually we discovered Session::Mongo which used a MongoDB dataserver to hold the session data.
+ It was a great solution and surprisingly easy to use once installed. While I had heard of MongoDB I had no experience
+ with NoSQL databases before so the rest of the project(Gitten) remained in PostGres and SQLite.
+ However it sparked my interest in the use of Mongo instead of SQL for future ruby sites. To my
+ suprise it provides alot of adventages however its not a very well documented processs so I've
+ decided to make this little tutorial.
+
+ Technical difficulties in the making of this tutorial
+ Coming from an ActiveRecord background it was surprising to discover that the MongoDB gems didn't come iwth a
+ seeder or migrations. The migrations turned out to be unnecessary but the lack of a seeder was very odd.
+ I ended up making my own rake task just so I could populate my database
+
+To accomplish this we will be using Ruby-2.1.2, Sinatra-X.X.X, Mongoid-X.X.X and Heroku. This tutorial
+will try to provide enough instruction and insight for a complete novice but if you find yourself lost
+consider checking out this tutorials on Sinatra, Ruby, Mongo and Heoku
+
+The Language: Ruby
+The Framework: Sinatra
+The Database: MongoDB
+The ORM: MongoID
+The Web Hosting: Heroku with MongoHQ plugin
+Other Technologies: Git,JSON
+
+Why Ruby? While Javascript and Python are more popular scripting languages simply by sheer volume neither have the same
+elegance of Ruby. Alot of that has to do with the simple fact that both languages have been in the public eye
+for twice as long. Ruby was rarely used before 2004, it wasn't until the introducation of Rails that the Ruby community exploded.
+It is an incredible powerful but still flexible language and if you spend the time to write in it you will soon see why so many
+people feel very passionate about this language.
+
+What is Sinatra? Sinatra is a micro-framwork written in Ruby built upon Rack. It is very similiar to Ruby on Rails
+some would even call its little brother as they both are built upon Rack.
+Sinatra is great for APIs as it doesn't come with a lot of the unnecessary complexity of Rails.
+ Also makes it great for beginners. Later on you may migrate over to Rails as it holds your hand while Sinatra
+ makes you reinvent the wheel but for our purposes it is a perfect tool.
+
+  NoSQL movement is quickly pushing out the SQL Dyntasty and bring us into the new era. At the forefront is
+  MongoDB. MongoDB brings withit an interesting take on
+
+Now you have an aweosme api its time to share it with the world. The easiest way to do this for free is using
+ Heroku. The greatest advantage to heroku is that you simply use git to deploy. All you need to do is create an
+ account and install the toolkit and presto changeo you will be a deployment wizard.
