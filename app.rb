@@ -16,9 +16,24 @@ end
 
 #generate a new client id and secret
 
-
-get "/random_cat_fact" do
+get '/generate_client' do
   content_type :json
-  CatFact.create(fact: "Test")
-  CatFact.first.to_json
+  #Generate an array of a to z, A to Z and 0 and 9
+  o = [('a'..'z'), ('A'..'Z'), ('0'..'9')].map { |i| i.to_a }.flatten
+  #now randomly pick 50 elements from the arry and combine them into a string
+  client_secret = (0...50).map { o[rand(o.length)] }.join
+  client_id = (0...25).map { o[rand(o.length)] }.join
+  #create the new client object
+  client = Client.create( client_id: client_id, secret: client_secret)
+  if client #if the client was created then return the new secret & client
+    {client_id: client_id, client_secret: client_secret}.to_json
+  else
+    {"message"=> "Failure"}.to_json
+  end
+end
+
+get "/random_cat_fact/?:num?" do
+  content_type :json
+  params[:num] ||= 1
+  CatFact.all.pluck(:fact).sample(params[:num].to_i).to_json
 end

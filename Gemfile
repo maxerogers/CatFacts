@@ -8,3 +8,4 @@ gem "mongoid"
 gem "tux"
 gem "rerun"
 gem "json"
+gem 'httparty'

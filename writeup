@@ -33,7 +33,7 @@ Unknown = 60 an hour
 
 
 At HackRU My partner Eve and I kept running into an issue with our rack sessions.
-We tried using the two default solutions provides by Sinatra (Session::Cookie and Session::Pool).
+We tried using the two default solutions provided by Sinatra (Session::Cookie and Session::Pool).
 Both had their solutions and problems. Cookie would function just fine but eventually we would
  run into a error where we had used up all of the 4k avaiable cookie space. Session::Pool releaved
  us of this issue but it didn't function properly. It would keep the user logged it throughout the
@@ -43,44 +43,55 @@ Both had their solutions and problems. Cookie would function just fine but event
  It was a great solution and surprisingly easy to use once installed. While I had heard of MongoDB I had no experience
  with NoSQL databases before so the rest of the project(Gitten) remained in PostGres and SQLite.
  However it sparked my interest in the use of Mongo instead of SQL for future ruby sites. To my
- suprise it provides alot of adventages however its not a very well documented processs so I've
+ suprise it provides alot of adventages however its not a very well documented process so I've
  decided to make this little tutorial.
 
  Technical difficulties in the making of this tutorial
- Coming from an ActiveRecord background it was surprising to discover that the MongoDB gems didn't come iwth a
+ Coming from an ActiveRecord background it was surprising to discover that the MongoDB gems didn't come with a
  seeder or migrations. The migrations turned out to be unnecessary but the lack of a seeder was very odd.
  I ended up making my own rake task just so I could populate my database
 
 To accomplish this we will be using Ruby-2.1.2, Sinatra-X.X.X, Mongoid-X.X.X and Heroku. This tutorial
 will try to provide enough instruction and insight for a complete novice but if you find yourself lost
-consider checking out this tutorials on Sinatra, Ruby, Mongo and Heoku
+consider checking out these tutorials on Sinatra, Ruby, Mongo and Heoku
 
 The Language: Ruby
 The Framework: Sinatra
 The Database: MongoDB
 The ORM: MongoID
-The Web Hosting: Heroku with MongoHQ plugin
+The Web Hosting: Heroku Dyno with MongoHQ plugin or Digital Ocean Ubuntu14 Droplet
 Other Technologies: Git,JSON
 
-Why Ruby? While Javascript and Python are more popular scripting languages simply by sheer volume neither have the same
-elegance of Ruby. Alot of that has to do with the simple fact that both languages have been in the public eye
-for twice as long. Ruby was rarely used before 2004, it wasn't until the introducation of Rails that the Ruby community exploded.
-It is an incredible powerful but still flexible language and if you spend the time to write in it you will soon see why so many
-people feel very passionate about this language.
-
-What is Sinatra? Sinatra is a micro-framwork written in Ruby built upon Rack. It is very similiar to Ruby on Rails
+What is Sinatra? Sinatra is a micro-framwork written in Ruby built upon Rack. It is very similar to Ruby on Rails
 some would even call its little brother as they both are built upon Rack.
-Sinatra is great for APIs as it doesn't come with a lot of the unnecessary complexity of Rails.
- Also makes it great for beginners. Later on you may migrate over to Rails as it holds your hand while Sinatra
- makes you reinvent the wheel but for our purposes it is a perfect tool.
+Sinatra is great for APIs as it doesn't come with a lot of the unnecessary complexity of Rails. This makes it a great
+web api for beginners. If you know Node.JS-Express or Python-Flask then you already know Sinatra since both are
+just language ports of Sinatra.
 
-  NoSQL movement is quickly pushing out the SQL Dyntasty and bring us into the new era. At the forefront is
-  MongoDB. MongoDB brings withit an interesting take on
+For a long time SQL was the only way to store data however not everything can be express easily in a
+relation-based model. People noticed that and have started to experiment with alternatives and thus the
+ NoSQL movement has been born. At the forefront of the toppling of the SQL Dyntasy is MongoDB.
+MongoDB. MongoDB brings with it an interesting take on database storage. Instead of columns and rows like a
+an excel spread sheet it relies upon document-based storage and returns the results in a JSON. The key there
+was it returns JSONs. MongoID the ORM we will be using is highly influenced by ActiveRecord(Rails' SQL ORM) so it contains
+alot of the same familiar functionality of an old SQL based querying system but with all of the benefits of this new
+style.
 
-Now you have an aweosme api its time to share it with the world. The easiest way to do this for free is using
+Now you have an awesome api its time to share it with the world. The easiest way to do this for free is using
  Heroku. The greatest advantage to heroku is that you simply use git to deploy. All you need to do is create an
  account and install the toolkit and presto changeo you will be a deployment wizard.
 
 
-I wanted to push this onto heroku but it requires you to verify your credit card despite the plugin being fre
+I wanted to push this onto heroku but it requires you to verify your credit card despite the plugin being free
 BAD BUSINESS MODEL IF YOU ASK ME!!!
+
+So if you have an already verified Heroku account you can follow these instructions to push it to heroku.
+
+Instead I used some of my digital ocean credit. The finished api can be found here!
+IF you'd prefer to use Digital Ocean as well here are the steps that I took to put it online
+
+Ubuntu14
+  Install rvm
+  Install mongod
+  Install unicorn
+  Install nginx

@@ -8,7 +8,7 @@ end
 class Client
   include Mongoid::Document
 
-  field :id, type: String
+  field :client_id, type: String
   field :secret, type: String
 
 end
