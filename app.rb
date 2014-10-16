@@ -19,6 +19,6 @@ end
 
 get "/random_cat_fact" do
   content_type :json
-
+  CatFact.create(fact: "Test")
   CatFact.first.to_json
 end
