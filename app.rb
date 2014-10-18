@@ -14,6 +14,12 @@ get '/' do
   "Hello World"
 end
 
+get "/random_cat_fact/?:num?" do
+  content_type :json
+  params[:num] ||= 1
+  CatFact.all.pluck(:fact).sample(params[:num].to_i).to_json
+end
+
 #generate a new client id and secret
 
 get '/generate_client' do
@@ -30,10 +36,4 @@ get '/generate_client' do
   else
     {"message"=> "Failure"}.to_json
   end
-end
-
-get "/random_cat_fact/?:num?" do
-  content_type :json
-  params[:num] ||= 1
-  CatFact.all.pluck(:fact).sample(params[:num].to_i).to_json
 end
