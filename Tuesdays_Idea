@@ -140,3 +140,35 @@ chown 777 logs
 chown 777 tmp
 
 NVM forget chown
+
+DELETE the shit in site-available
+delete conf.id/defaults and replace with default.conf
+
+Unix find what file directory
+
+Menufile
+proxy: nginx
+server: unicorn
+app_type: sinatra/rails
+app_name: tester
+database: mongodb, postgresql, sqlite3
+
+if time: add NodeJS support
+
+User Case:
+ssh to their server
+ git clone url
+ unsupport api installations
+ tuesday
+
+ Future CATCH THEIR GIT REPO
+
+
+Steps:
+Make it an unix execable in bin DONE!!!!!
+Generate the new apps
+Do the installations
+Add Rails support
+Add NodeJS
+Add other ruby servers
+get our ass on apt-get install 
