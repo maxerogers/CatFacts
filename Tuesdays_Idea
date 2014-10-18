@@ -17,3 +17,17 @@ cat unicorn.conf
 cat /etc/nginx/conf.d/defaults
 unicorn unicorn.conf
 nginx service restart
+
+
+Look for Errors - Send errors using in.box
+
+
+Options Add NodeJS && PythonFlask
+Options Add Puma, Thin and other servers
+
+Puma : https://gist.github.com/ctalkington/4448153
+
+
+List of Technologies:
+Bash, Ruby, Nginx, Unicorn, Sinatra, Rails
+Later add Nodejs, Flask, Puma, Thin, Gunicorn, fugue and etc
