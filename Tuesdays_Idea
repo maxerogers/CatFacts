@@ -1,0 +1,19 @@
+Ruby Gem
+Setups Rack with Nginx and Unicorn
+
+tuesday install - Installs Nginx
+tuesday add - Adds a rack server to Nginx
+tuesday remove - Removes a rack server from Nginx
+tuesday restart - Restarts the unicorns and then the Nginx Server
+
+tuesday install
+gem install unicorn
+apt-get install nginx
+
+tuesday add
+mkdir /var/www/$app/logs
+mkdir /var/www/$app/tmp
+cat unicorn.conf
+cat /etc/nginx/conf.d/defaults
+unicorn unicorn.conf
+nginx service restart
