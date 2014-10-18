@@ -107,6 +107,9 @@ timeout 30
 
 #######################################################
 
+To run unicorn user the following command
+unicorn -c unicorn.rb -D
+
 Make them install ruby rvm with a version atleast 2.1.2 >
 
 
@@ -126,3 +129,14 @@ then in the terminal call
 chmod +x $file_name
 
 Now as long as that folder is in path it will be called :)
+
+make sure to install git for user
+
+Make sure it runs bundle install --without production
+
+also make pids and logs files 777 ownership
+
+chown 777 logs
+chown 777 tmp
+
+NVM forget chown
