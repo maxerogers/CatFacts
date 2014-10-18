@@ -115,3 +115,14 @@ About us
 Step through NameCheap Domain redirect for use with Tuesday
 Installation with Tuesday (Step up with Digital Ocean)
 Show usage with Sinatra, Rails and NodeJS
+
+
+#To make a ruby file executable add
+
+this
+#!/usr/bin/env ruby
+to the top of the file
+then in the terminal call
+chmod +x $file_name
+
+Now as long as that folder is in path it will be called :)
